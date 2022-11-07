@@ -1,16 +1,22 @@
 import { ArrowUpRight } from 'phosphor-react-native';
 import styled, { css } from 'styled-components/native';
 
-export const Container = styled.View`
+type PercentStyleProps = {
+  type: 'PRIMARY' | 'SECONDARY'
+};
+
+export const Container = styled.View<PercentStyleProps>`
   position: relative;
   width: 100%;
   padding: 20px 16px;  
   margin-bottom: 60px;
 
+  border-radius: 8px;
+
   align-items: center;
   text-align: center;
 
-  background-color: ${({ theme }) => theme.COLORS.GREEN_LIGHT};
+  background-color: ${({ theme, type = 'PRIMARY' }) => type === 'PRIMARY' ? theme.COLORS.GREEN_LIGHT : theme.COLORS.RED_LIGHT};
 `;
 
 export const Title = styled.Text`
@@ -29,10 +35,10 @@ export const Description = styled.Text`
   `} 
 `;
 
-export const Icon = styled(ArrowUpRight).attrs(({ theme }) => ({
+export const Icon = styled(ArrowUpRight).attrs<PercentStyleProps>(({ theme, type = 'PRIMARY' }) => ({
   size: 24,
-  color: theme.COLORS.GREEN_DARK
-}))`
+  color: type === 'PRIMARY' ? theme.COLORS.GREEN_DARK : theme.COLORS.RED_DARK
+}))<PercentStyleProps>`
   position: absolute;
   top: 8px;
   right: 8px;

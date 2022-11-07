@@ -26,10 +26,24 @@ export const Home = () => {
       ]
     }]
 
+    const totalMeals = data.reduce((totalMeals, date) => {
+      totalMeals += date.meals.length
+      return totalMeals
+    }, 0)
+
+    const totalMealsInDiet = data.reduce((totalMeals, date) => {
+      totalMeals += date.meals.filter(meal => meal.inDiet).length
+      return totalMeals
+    }, 0)
+
+    console.log('totalMeals: ', totalMeals);
+    console.log('totalMealsInDiet: ', totalMealsInDiet);
+    
+
   return (
     <Container>
       <Header />
-      <Percent />
+      <Percent type='SECONDARY' />
       <Meals>
         <New>
           <Text style={{ marginBottom: 8 }}>Refeições</Text>
