@@ -5,7 +5,7 @@ type PercentStyleProps = {
   type: 'PRIMARY' | 'SECONDARY'
 };
 
-export const Container = styled.View<PercentStyleProps>`
+export const Container = styled.TouchableOpacity<PercentStyleProps>`
   position: relative;
   width: 100%;
   padding: 20px 16px;  

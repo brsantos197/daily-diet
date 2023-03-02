@@ -7,7 +7,7 @@ export const Statistics = () => {
     <Container>
       <Header>
         <BackButtonContainer>
-          <BackIcon />
+          <BackIcon color='GREEN_DARK' />
         </BackButtonContainer>
         <Title>90,56%</Title>
         <Description>

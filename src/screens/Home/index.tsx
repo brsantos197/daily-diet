@@ -2,10 +2,14 @@ import React from 'react';
 import { Header } from '@components/Header';
 import { Container, Divider, Meal, MealHour, MealName, Meals, MealsDateText, MealStatus, New } from './styles';
 import { Percent } from '@components/Percent';
-import { FlatList, Text, View } from 'react-native';
+import { FlatList, Text, TouchableOpacity, View } from 'react-native';
 import { Button } from '@components/Button';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { useNavigation } from '@react-navigation/native';
 
 export const Home = () => {
+
+  const navigation = useNavigation()
 
   const data = [
     {
@@ -26,28 +30,36 @@ export const Home = () => {
       ]
     }]
 
-    const totalMeals = data.reduce((totalMeals, date) => {
-      totalMeals += date.meals.length
-      return totalMeals
-    }, 0)
+  const totalMeals = data.reduce((totalMeals, date) => {
+    totalMeals += date.meals.length
+    return totalMeals
+  }, 0)
 
-    const totalMealsInDiet = data.reduce((totalMeals, date) => {
-      totalMeals += date.meals.filter(meal => meal.inDiet).length
-      return totalMeals
-    }, 0)
+  const totalMealsInDiet = data.reduce((totalMeals, date) => {
+    totalMeals += date.meals.filter(meal => meal.inDiet).length
+    return totalMeals
+  }, 0)
 
-    console.log('totalMeals: ', totalMeals);
-    console.log('totalMealsInDiet: ', totalMealsInDiet);
-    
+  const handleStatistics = () => {
+    navigation.navigate('statistics')
+  }
+
+  const handleNewSnack = () => {
+    navigation.navigate('newsnack')
+  }
+
+  console.log('totalMeals: ', totalMeals);
+  console.log('totalMealsInDiet: ', totalMealsInDiet);
+
 
   return (
     <Container>
       <Header />
-      <Percent type='SECONDARY' />
+      <Percent type='SECONDARY' onPress={handleStatistics} />
       <Meals>
         <New>
           <Text style={{ marginBottom: 8 }}>Refeições</Text>
-          <Button text='Nova Refeição' icon='add' />
+          <Button text='Nova Refeição' icon='add' onPress={handleNewSnack} />
         </New>
         <FlatList
           data={data}
