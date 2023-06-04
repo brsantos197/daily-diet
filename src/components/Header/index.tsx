@@ -7,7 +7,6 @@ import avatarImg from "@assets/avatar.png";
 export const Header = () => {
   return (
     <Container>
-      
       <Logo source={logoImg} />
       <Avatar source={avatarImg} />
     </Container>

@@ -7,7 +7,7 @@ type Props = TextInputProps & {
   label?: string
 }
 
-export const InputComponent = ({ label, style,...rest }: Props) => {
+export const InputComponent = ({ label, style, ...rest }: Props) => {
   return (
     <Container style={style}>
       <Label>{label}</Label>

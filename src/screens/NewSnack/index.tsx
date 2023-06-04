@@ -16,8 +16,8 @@ export const NewSnack = () => {
         <InputComponent label='Nome' />
         <InputComponent label='Descrição' multiline />
         <Row>
-         <InputComponent label='Data' />
-         <InputComponent label='Hora' style={{ marginLeft: 20  }} />
+          <InputComponent label='Data' />
+          <InputComponent label='Hora' style={{ marginLeft: 20 }} />
         </Row>
       </Content>
     </Container>
