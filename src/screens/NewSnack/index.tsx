@@ -1,6 +1,7 @@
 import { BackIcon } from '@components/BackIcon';
 import { InputComponent } from '@components/Input';
 import React from 'react';
+import { View } from "react-native";
 import { BackButtonContainer, Container, Content, Header, Row, Title } from './styles';
 
 export const NewSnack = () => {
@@ -16,8 +17,8 @@ export const NewSnack = () => {
         <InputComponent label='Nome' />
         <InputComponent label='Descrição' multiline />
         <Row>
-          <InputComponent label='Data' />
-          <InputComponent label='Hora' style={{ marginLeft: 20 }} />
+          <InputComponent label='Data' datePicker style={{ flex: 1 }} />
+          <InputComponent label='Hora' style={{ flex: 1, marginLeft: 20 }} />
         </Row>
       </Content>
     </Container>

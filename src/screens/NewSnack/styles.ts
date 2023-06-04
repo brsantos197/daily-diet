@@ -1,3 +1,4 @@
+import { InputComponent } from '@components/Input';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import styled, { css } from 'styled-components/native';
 
@@ -37,6 +38,7 @@ export const Content = styled.View`
   height: 100%;
 
   align-items: center;
+  justify-content: flex-start;
   text-align: center;
   background-color: ${({ theme }) => theme.COLORS.GRAY_700};
 
@@ -49,4 +51,5 @@ export const Content = styled.View`
 
 export const Row = styled.View`
   flex-direction: row;
+  width: 100%;
 `;
